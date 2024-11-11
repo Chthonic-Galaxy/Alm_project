@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "analyzerservice"
+version = "0.1.0"
+description = ""
+authors = ["Chthonic-Galaxy <162060169+Chthonic-Galaxy@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = {extras = ["standard"], version = "^0.115.5"}
+httpie = "^3.2.4"
+google-generativeai = "^0.8.3"
+python-dotenv = "^1.0.1"
+celery = "^5.4.0"
+redis = "^5.2.0"
+uvicorn = "^0.32.0"
+
+
+[tool.poetry.group.test.dependencies]
+pytest-mock = "^3.14.0"
+coverage = "^7.6.5"
+pytest-asyncio = "^0.24.0"
+
+
+[tool.poetry.group.database.dependencies]
+sqlalchemy = "^2.0.36"
+psycopg = {extras = ["binary"], version = "^3.2.3"}
+greenlet = "^3.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+markers = [
+    "asyncio: mark test as async",
+]
+
+[tool.pytest-asyncio]
+loop_scope = "function"
